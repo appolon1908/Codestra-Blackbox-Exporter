@@ -1,0 +1,97 @@
+name: Validate Codestra Blackbox runtime v1
+
+on:
+  pull_request:
+    paths:
+      - "codestra/runtime-v1/**"
+      - "upstream/**"
+      - "CODESTRA_UPSTREAM_LOCK.json"
+      - ".github/workflows/validate-codestra-runtime-v1.yml"
+  push:
+    branches:
+      - development
+      - test
+      - staging
+      - production
+      - main
+    paths:
+      - "codestra/runtime-v1/**"
+      - "upstream/**"
+      - "CODESTRA_UPSTREAM_LOCK.json"
+      - ".github/workflows/validate-codestra-runtime-v1.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5
+        with:
+          go-version-file: upstream/go.mod
+          cache-dependency-path: upstream/go.sum
+      - name: Build the exact vendored Blackbox Exporter source
+        working-directory: upstream
+        run: go build -trimpath -o ../.tmp-blackbox-exporter .
+      - name: Validate native Blackbox configuration
+        run: ./.tmp-blackbox-exporter --config.check --config.file=codestra/runtime-v1/blackbox.yml
+      - name: Prove configured runtime flags exist in the exact source snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          help="$(./.tmp-blackbox-exporter --help 2>&1 || true)"
+          for flag in config.file web.listen-address log.level log.format; do
+            grep -q -- "--${flag}" <<<"$help"
+          done
+      - name: Install pinned YAML parser
+        run: python -m pip install --disable-pip-version-check PyYAML==6.0.2
+      - name: Validate Codestra probe and portfolio policy
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+          import yaml
+
+          root = Path("codestra/runtime-v1")
+          blackbox_text = (root / "blackbox.yml").read_text()
+          modules = yaml.safe_load(blackbox_text)["modules"]
+          portfolio = json.loads((root / "portfolio-probes.json").read_text())
+          compose_text = (root / "compose-codestra.yaml").read_text()
+          compose = yaml.safe_load(compose_text)
+          service = compose["services"]["blackbox-exporter"]
+          assert set(service["networks"]) == {"prometheus_blackbox"}
+          assert compose["networks"]["prometheus_blackbox"]["external"] is True
+          assert compose["networks"]["prometheus_blackbox"]["name"] == "${CODESTRA_PROMETHEUS_BLACKBOX_NETWORK:-codestra-prometheus-blackbox}"
+
+          required_businesses = {
+              "codestra", "moneybee", "beyvra", "breero", "larim-a",
+              "transportation", "booked4seasons", "social", "klyrow",
+              "telnexa", "kyqra", "restaurant", "provisioning",
+          }
+          actual_businesses = {item["codestra_business"] for item in portfolio["businesses"]}
+          assert actual_businesses == required_businesses
+          assert all(item["activation"] == "pending" for item in portfolio["businesses"])
+          assert set(portfolio["approvedModules"]) == set(modules)
+          for name, module in modules.items():
+              if module["prober"] == "http":
+                  http = module["http"]
+                  assert http["fail_if_not_ssl"] is True
+                  assert http["tls_config"]["insecure_skip_verify"] is False
+                  assert "Authorization" not in http.get("headers", {})
+              if module["prober"] == "tcp" and module.get("tcp", {}).get("tls"):
+                  assert module["tcp"]["tls_config"]["insecure_skip_verify"] is False
+          rules = portfolio["renderedFileSdRules"]
+          assert rules["credentialsInProbeUrlAllowed"] is False
+          assert rules["authorizationHeadersAllowed"] is False
+          assert rules["activationWithoutStagingEvidenceAllowed"] is False
+          assert "ports" not in service
+          assert service["read_only"] is True
+          assert "ALL" in service["cap_drop"]
+          assert "latest" not in compose_text.lower()
+          lowered = blackbox_text.lower()
+          assert "basic_auth" not in lowered and "bearer_token" not in lowered
+          print("Codestra Blackbox runtime validation PASS")
+      - name: Validate Compose structure without resolving runtime values
+        run: docker compose -f codestra/runtime-v1/compose-codestra.yaml config --no-interpolate >/dev/null

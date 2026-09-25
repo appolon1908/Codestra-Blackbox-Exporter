@@ -1,0 +1,66 @@
+name: Validate Blackbox Exporter authority
+
+on:
+  pull_request:
+  push:
+    branches: [development, test, staging, production, main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install YAML parser
+        run: python3 -m pip install --disable-pip-version-check PyYAML==6.0.3
+      - name: Render and inspect compose authority
+        env:
+          CODESTRA_PROMETHEUS_BLACKBOX_NETWORK: codestra-prometheus-blackbox
+        run: |
+          set -euo pipefail
+          python3 scripts/validate_deployment_inputs.py
+          docker compose -f deploy/compose.yaml config --format json > /tmp/compose.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          import yaml
+
+          compose = json.loads(Path('/tmp/compose.json').read_text())
+          service = compose['services']['blackbox-exporter']
+          assert '@sha256:' in service['image']
+          assert service['user'] == '65534:65534'
+          assert service['read_only'] is True
+          assert service['cap_drop'] == ['ALL']
+          assert service['cap_add'] == ['NET_RAW']
+          assert not service.get('ports')
+          assert service['expose'] == ['9115']
+          assert set(service['networks']) == {'prometheus_blackbox'}
+          assert compose['networks']['prometheus_blackbox']['external'] is True
+          assert compose['networks']['prometheus_blackbox']['name'] == 'codestra-prometheus-blackbox'
+
+          config = yaml.safe_load(Path('config/blackbox.yml').read_text())
+          modules = config['modules']
+          assert {'https_2xx', 'http_2xx_internal', 'tcp_connect', 'dns_codestra_a', 'icmp_private'} <= set(modules)
+          for name, module in modules.items():
+              timeout = int(str(module['timeout']).removesuffix('s'))
+              assert 0 < timeout <= 10, name
+          assert modules['https_2xx']['http']['fail_if_not_ssl'] is True
+          assert modules['https_2xx']['http']['tls_config']['insecure_skip_verify'] is False
+          assert modules['http_2xx_internal']['http']['follow_redirects'] is False
+          assert modules['dns_codestra_a']['dns']['query_name'] == 'codestra.co'
+          PY
+      - name: Reject mutable images and insecure probes
+        run: |
+          set -euo pipefail
+          for image in \
+            'prometheus/blackbox-exporter:latest' \
+            'prometheus/blackbox-exporter:v1.0.0' \
+            'prometheus/blackbox-exporter@sha256:short' \
+            'prometheus/blackbox-exporter@sha256:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'; do
+            ! BLACKBOX_EXPORTER_IMAGE="$image" python3 scripts/validate_deployment_inputs.py
+          done
+          ! grep -RInE 'image:.*(:latest|:[[:space:]]*$)' deploy
+          ! grep -RInE 'insecure_skip_verify:[[:space:]]*true' config

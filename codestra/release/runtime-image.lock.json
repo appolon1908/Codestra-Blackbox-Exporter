@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactModel": "verified-upstream-image-plus-signed-config",
+  "upstreamRepository": "prometheus/blackbox_exporter",
+  "upstreamVersion": "v0.28.0",
+  "upstreamTagCommit": "5a059bee8d8ffa4e75947c5055fb0abeefc582e6",
+  "image": "quay.io/prometheus/blackbox-exporter@sha256:e753ff9f3fc458d02cca5eddab5a77e1c175eee484a8925ac7d524f04366c2fc",
+  "linuxAmd64Manifest": "sha256:43027b43fb785b7c5adc53bd3b5dbc1a258270a2e8aff24f477b45c4e38dac68",
+  "binaryRevisionReadback": "5a059bee8d8ffa4e75947c5055fb0abeefc582e6",
+  "upstreamSignature": {"available": false, "verification": "NO_SIGSTORE_SIGNATURE_PUBLISHED"},
+  "productionActivation": false
+}

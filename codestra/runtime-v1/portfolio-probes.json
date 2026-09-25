@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.1",
+  "status": "SOURCE_PREPARED_TARGETS_PENDING",
+  "targetAuthority": "approved deployment inventory",
+  "approvedModules": [
+    "https_2xx_strict",
+    "https_redirect_chain",
+    "https_health_json",
+    "tcp_connect",
+    "tcp_tls",
+    "dns_codestra_media_a",
+    "dns_codestra_co_a",
+    "https_intake_readiness_json"
+  ],
+  "businesses": [
+    {"codestra_business": "codestra", "owner": "codestra-platform", "requiredProbeClasses": ["public-web", "public-api", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "moneybee", "owner": "moneybee-platform", "requiredProbeClasses": ["public-web", "public-api", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "beyvra", "owner": "beyvra-platform", "requiredProbeClasses": ["public-web", "public-api", "market-data-health", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "breero", "owner": "breero-platform", "requiredProbeClasses": ["public-web", "public-api", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "larim-a", "owner": "larim-a-platform", "requiredProbeClasses": ["public-web", "public-api", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "transportation", "owner": "transportation-platform", "requiredProbeClasses": ["public-web", "public-api", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "booked4seasons", "owner": "booked4seasons-platform", "requiredProbeClasses": ["public-web", "public-api", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "social", "owner": "social-platform", "requiredProbeClasses": ["public-web", "public-api", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "klyrow", "owner": "klyrow-platform", "requiredProbeClasses": ["public-web", "public-api", "smtp-tls", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "telnexa", "owner": "telnexa-platform", "requiredProbeClasses": ["public-web", "public-api", "sms-provider-health", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "kyqra", "owner": "kyqra-platform", "requiredProbeClasses": ["public-web", "public-api", "crawler-health", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "restaurant", "owner": "restaurant-platform", "requiredProbeClasses": ["public-web", "public-api", "health", "tls", "intake-readiness"], "activation": "pending"},
+    {"codestra_business": "provisioning", "owner": "codestra-platform", "requiredProbeClasses": ["private-api", "health", "tls", "intake-readiness"], "activation": "pending"}
+  ],
+  "intakeProbeRules": {
+    "approvedMethods": ["GET", "HEAD"],
+    "syntheticLeadSubmissionAllowed": false,
+    "syntheticSurveySubmissionAllowed": false,
+    "credentialsOrAuthorizationHeadersAllowed": false,
+    "requestBodyAllowed": false,
+    "customerOrContactDataAllowed": false,
+    "requiredReadinessResponse": "bounded JSON status/state",
+    "activation": "pending-until-service-owned-readiness-endpoint-and-staging-evidence"
+  },
+  "renderedFileSdRules": {
+    "requiresExactEndpointInventory": true,
+    "requiresOwner": true,
+    "requiresEnvironment": true,
+    "requiresRunbook": true,
+    "requiresExpectedStatusContract": true,
+    "customerSpecificTargetsAllowed": false,
+    "credentialsInProbeUrlAllowed": false,
+    "authorizationHeadersAllowed": false,
+    "activationWithoutStagingEvidenceAllowed": false
+  }
+}

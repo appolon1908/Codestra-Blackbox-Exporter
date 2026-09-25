@@ -1,0 +1,36 @@
+name: codestra-blackbox-exporter
+
+services:
+  blackbox-exporter:
+    image: quay.io/prometheus/blackbox-exporter@sha256:e753ff9f3fc458d02cca5eddab5a77e1c175eee484a8925ac7d524f04366c2fc
+    restart: unless-stopped
+    user: "65534:65534"
+    read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_RAW
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    stop_grace_period: 15s
+    command:
+      - --config.file=/etc/blackbox_exporter/blackbox.yml
+      - --web.listen-address=:9115
+      - --log.level=info
+      - --log.prober=info
+    expose:
+      - "9115"
+    volumes:
+      - ../config/blackbox.yml:/etc/blackbox_exporter/blackbox.yml:ro
+    networks:
+      prometheus_blackbox:
+        aliases:
+          - blackbox-exporter
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=16m
+
+networks:
+  prometheus_blackbox:
+    external: true
+    name: ${CODESTRA_PROMETHEUS_BLACKBOX_NETWORK:-codestra-prometheus-blackbox}
