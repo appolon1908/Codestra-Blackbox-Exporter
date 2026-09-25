@@ -1,6 +1,6 @@
 # Codestra Blackbox Exporter Authority
 
-Principal repository: `appolon1908-hue/Codestra-Blackbox-Exporter`
+Principal repository: `ingtrader21-spec/Codestra-Blackbox-Exporter`
 Canonical service host: `blac.codestra.media`
 Canonical DNS target: `37.27.128.39`
 TTL: `600`
