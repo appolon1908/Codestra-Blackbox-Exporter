@@ -45,3 +45,45 @@ modules:
     timeout: 5s
     icmp:
       preferred_ip_protocol: ip4
+
+  # GET /v1/sys/health only: 200 active and 429 standby are healthy; the body must
+  # report initialized=true and sealed=false. The probe never unseals, initialises
+  # or authenticates, and a sealed result is an operator page, never an action.
+  https_openbao_health:
+    prober: http
+    timeout: 5s
+    http:
+      method: GET
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: false
+      follow_redirects: false
+      fail_if_ssl: false
+      fail_if_not_ssl: true
+      valid_status_codes: [200, 429]
+      tls_config:
+        ca_file: /run/secrets/codestra-openbao-ca
+        insecure_skip_verify: false
+      fail_if_body_not_matches_regexp:
+        - '"initialized":\s*true'
+        - '"sealed":\s*false'
+
+  dns_a_record:
+    prober: dns
+    timeout: 5s
+    dns:
+      query_name: codestra.co
+      query_type: A
+      valid_rcodes: [NOERROR]
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: false
+      transport_protocol: udp
+
+  tls_expiry:
+    prober: tcp
+    timeout: 5s
+    tcp:
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: false
+      tls: true
+      tls_config:
+        insecure_skip_verify: false

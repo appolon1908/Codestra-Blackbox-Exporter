@@ -6,7 +6,7 @@
   "productionActivation": false,
   "files": {
     "deploy/compose.yaml": "sha256:d339c8ef9b031cb90889a0a60122791088808aa99f406fa87ceb83f062a08a74",
-    "config/blackbox.yml": "sha256:c6040fab823eef54e37ee642a573046076afbe0c8ff39fa5293dd2ba30843eb6",
+    "config/blackbox.yml": "sha256:b7decb588ff09c16b5848e09addee1116b724bcc02424f9d52e650a7edf292d0",
     "codestra/runtime-v1/compose.yaml": "sha256:dee9c8f73f2a531112c0e7b6d3eeb89a3279631be16a80e5b75c61ed776e92f9",
     "codestra/runtime-v1/compose-codestra.yaml": "sha256:7c06e406736c672aae9c291ce72a3ce2e8a59904404e1b7d2e08a1ea1bc1c338",
     "codestra/runtime-v1/blackbox.yml": "sha256:0da7976223b575f9c665d1bff920d3c0c508ea34a6e3aef029816faedad2fbcf",
