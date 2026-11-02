@@ -1,0 +1,553 @@
+{
+  "schema_version": 1,
+  "repository": "appolon1908/Codestra-Blackbox-Exporter",
+  "scope": "frozen-vendor-documentation-additions-only",
+  "application_source_allowed": false,
+  "reviewed_base_sha": "c4353d18214b24e0406b8e597edb6b8276f6ccbf",
+  "reviewed_base_tree": "c1d1be4b72e3cb27f5cd53e1fca6656ebbd8ee8d",
+  "baseline_files": [
+    ".github/copilot-instructions.md",
+    ".github/workflows/monitoring-record.yml",
+    ".github/workflows/upstream-source-sync.yml",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "CODESTRA_HOSTNAME.json",
+    "CODESTRA_UPSTREAM.json",
+    "CODESTRA_UPSTREAM_LOCK.json",
+    "MONITORING-INTEGRATION.md",
+    "README.md",
+    "REPO_AUTHORITY.md",
+    "docs/ARCHITECTURE-CHARTS.md",
+    "docs/CODESTRA-MEDIA-AUTHORITY.md",
+    "monitoring-integration.v1.json",
+    "upstream/.dockerignore",
+    "upstream/.github/ISSUE_TEMPLATE.md",
+    "upstream/.github/PULL_REQUEST_TEMPLATE.md",
+    "upstream/.github/dependabot.yml",
+    "upstream/.github/workflows/approve-workflows.yml",
+    "upstream/.github/workflows/ci.yml",
+    "upstream/.github/workflows/container_description.yml",
+    "upstream/.github/workflows/golangci-lint.yml",
+    "upstream/.github/workflows/govulncheck.yml",
+    "upstream/.github/workflows/stale.yml",
+    "upstream/.gitignore",
+    "upstream/.golangci.yml",
+    "upstream/.promu.yml",
+    "upstream/.yamllint",
+    "upstream/CHANGELOG.md",
+    "upstream/CODE_OF_CONDUCT.md",
+    "upstream/CONFIGURATION.md",
+    "upstream/Dockerfile",
+    "upstream/Dockerfile.distroless",
+    "upstream/LICENSE",
+    "upstream/MAINTAINERS.md",
+    "upstream/Makefile",
+    "upstream/Makefile.common",
+    "upstream/NOTICE",
+    "upstream/README.md",
+    "upstream/SECURITY.md",
+    "upstream/VERSION",
+    "upstream/blackbox.yml",
+    "upstream/config/config.go",
+    "upstream/config/config_test.go",
+    "upstream/config/reload.go",
+    "upstream/config/reload_test.go",
+    "upstream/config/testdata/blackbox-bad.yml",
+    "upstream/config/testdata/blackbox-bad2.yml",
+    "upstream/config/testdata/blackbox-good.yml",
+    "upstream/config/testdata/invalid-dns-class.yml",
+    "upstream/config/testdata/invalid-dns-module.yml",
+    "upstream/config/testdata/invalid-dns-type.yml",
+    "upstream/config/testdata/invalid-grpc-check-revoked-without-tls.yml",
+    "upstream/config/testdata/invalid-http-body-config.yml",
+    "upstream/config/testdata/invalid-http-body-match-regexp.yml",
+    "upstream/config/testdata/invalid-http-body-not-match-regexp.yml",
+    "upstream/config/testdata/invalid-http-compression-mismatch-special-case.yml",
+    "upstream/config/testdata/invalid-http-compression-mismatch.yml",
+    "upstream/config/testdata/invalid-http-header-match-regexp.yml",
+    "upstream/config/testdata/invalid-http-header-match.yml",
+    "upstream/config/testdata/invalid-http-http3-http2-enabled.yml",
+    "upstream/config/testdata/invalid-http-http3-http2-version.yml",
+    "upstream/config/testdata/invalid-http-http3-http2.yml",
+    "upstream/config/testdata/invalid-http-request-compression-reject-all-encodings.yml",
+    "upstream/config/testdata/invalid-icmp-ttl-overflow.yml",
+    "upstream/config/testdata/invalid-icmp-ttl.yml",
+    "upstream/config/testdata/invalid-no-versions-http3-enabled.yml",
+    "upstream/config/testdata/invalid-prober.yml",
+    "upstream/config/testdata/invalid-tcp-check-revoked-without-tls.yml",
+    "upstream/config/testdata/invalid-tcp-query-response-regexp.yml",
+    "upstream/config/testdata/invalid-unix-query-response-regexp.yml",
+    "upstream/config/testdata/invalid-websocket-query-response-regexp.yml",
+    "upstream/example.yml",
+    "upstream/go.mod",
+    "upstream/go.sum",
+    "upstream/main.go",
+    "upstream/main_test.go",
+    "upstream/prober/crl.go",
+    "upstream/prober/crl_test.go",
+    "upstream/prober/dns.go",
+    "upstream/prober/dns_test.go",
+    "upstream/prober/grpc.go",
+    "upstream/prober/grpc_test.go",
+    "upstream/prober/handler.go",
+    "upstream/prober/handler_test.go",
+    "upstream/prober/history.go",
+    "upstream/prober/history_test.go",
+    "upstream/prober/http.go",
+    "upstream/prober/http_test.go",
+    "upstream/prober/icmp.go",
+    "upstream/prober/prober.go",
+    "upstream/prober/query_response.go",
+    "upstream/prober/tcp.go",
+    "upstream/prober/tcp_test.go",
+    "upstream/prober/tls.go",
+    "upstream/prober/unix.go",
+    "upstream/prober/unix_test.go",
+    "upstream/prober/utils.go",
+    "upstream/prober/utils_test.go",
+    "upstream/prober/websocket.go",
+    "upstream/prober/websocket_test.go"
+  ],
+  "frozen_entries": {
+    ".github/copilot-instructions.md": {
+      "mode": "100644",
+      "blob": "b377a31eb1f063ad7583864774218e579dbb9511"
+    },
+    ".github/workflows/monitoring-record.yml": {
+      "mode": "100644",
+      "blob": "f6fe0f2e259c4662d23523c7d085313f9b7b5b52"
+    },
+    ".github/workflows/upstream-source-sync.yml": {
+      "mode": "100644",
+      "blob": "9ebddaae4fb6101386995c0e345c22251168ba68"
+    },
+    "AGENTS.md": {
+      "mode": "100644",
+      "blob": "f40b112ab45e0860b2d3266adda5f8ea74c0cdae"
+    },
+    "CLAUDE.md": {
+      "mode": "100644",
+      "blob": "b9e6478b26ddc3b6a355db913f326576b3485ac8"
+    },
+    "CODESTRA_HOSTNAME.json": {
+      "mode": "100644",
+      "blob": "bbf3bb74c897a07cfb76fea3bb13889ca70a05d5"
+    },
+    "CODESTRA_UPSTREAM.json": {
+      "mode": "100644",
+      "blob": "1217fa1b95928d6ef5db6905a31b93593e3205f4"
+    },
+    "CODESTRA_UPSTREAM_LOCK.json": {
+      "mode": "100644",
+      "blob": "3d4a141129a748c5735287f962dccae2655ec88b"
+    },
+    "MONITORING-INTEGRATION.md": {
+      "mode": "100644",
+      "blob": "77209441ac59d76559024a5f3e6839b103b2af62"
+    },
+    "README.md": {
+      "mode": "100644",
+      "blob": "6ea553e3a74d76401cdd1098667b7ef80778b549"
+    },
+    "REPO_AUTHORITY.md": {
+      "mode": "100644",
+      "blob": "9a1fde8c3b824ddc1cba0546dd217fc9d7bb2168"
+    },
+    "docs/ARCHITECTURE-CHARTS.md": {
+      "mode": "100644",
+      "blob": "17a78cd8fd0e43d7065e61b52125bf78fd2936f8"
+    },
+    "docs/CODESTRA-MEDIA-AUTHORITY.md": {
+      "mode": "100644",
+      "blob": "59aa833fa13c142becf0771b8f9d73561b461e3f"
+    },
+    "monitoring-integration.v1.json": {
+      "mode": "100644",
+      "blob": "4988346cc429f4b2cca1e27cf35254492124cb7b"
+    },
+    "upstream/.dockerignore": {
+      "mode": "100644",
+      "blob": "09670991552bf3f6c200d4e6cd146e7b345f8a31"
+    },
+    "upstream/.github/ISSUE_TEMPLATE.md": {
+      "mode": "100644",
+      "blob": "5801e4ed3ded9f79d663943a4b53f144a9795ddc"
+    },
+    "upstream/.github/PULL_REQUEST_TEMPLATE.md": {
+      "mode": "100644",
+      "blob": "75e86e84dd171f8988d1b7f31519a6b1aff4177b"
+    },
+    "upstream/.github/dependabot.yml": {
+      "mode": "100644",
+      "blob": "57d84104426f878495f53e3a0d175997112a2277"
+    },
+    "upstream/.github/workflows/approve-workflows.yml": {
+      "mode": "100644",
+      "blob": "f372012f2b7604210557924b857fd46f1b7fc7a1"
+    },
+    "upstream/.github/workflows/ci.yml": {
+      "mode": "100644",
+      "blob": "981f730b5860229e62be907b8e8d952a21eefda3"
+    },
+    "upstream/.github/workflows/container_description.yml": {
+      "mode": "100644",
+      "blob": "ed4ada556dfe36468c91a8609eaad191c7f77a7c"
+    },
+    "upstream/.github/workflows/golangci-lint.yml": {
+      "mode": "100644",
+      "blob": "45704a95443c2a7580c12b081622718385898213"
+    },
+    "upstream/.github/workflows/govulncheck.yml": {
+      "mode": "100644",
+      "blob": "8c4deff9f808b0687ff9e1a47b04ff70e91e0be2"
+    },
+    "upstream/.github/workflows/stale.yml": {
+      "mode": "100644",
+      "blob": "25a0ad0b4dd0ffba857ec8f614ca39ac5580da49"
+    },
+    "upstream/.gitignore": {
+      "mode": "100644",
+      "blob": "3f307020040ac9f4914befc95103dacd28081554"
+    },
+    "upstream/.golangci.yml": {
+      "mode": "100644",
+      "blob": "e5d2e6fd4763d2a001b4f0a235237198597c3f75"
+    },
+    "upstream/.promu.yml": {
+      "mode": "100644",
+      "blob": "c10c3dc55d735675d899780f31f74037825f10c5"
+    },
+    "upstream/.yamllint": {
+      "mode": "100644",
+      "blob": "b52b0be4f0ae5307b6108a1e14d7b0878bc9161e"
+    },
+    "upstream/CHANGELOG.md": {
+      "mode": "100644",
+      "blob": "497784a6538096e9d824cf77e465f31713efa266"
+    },
+    "upstream/CODE_OF_CONDUCT.md": {
+      "mode": "100644",
+      "blob": "d325872bdfad8d09e1d8c638f914f655f738c77f"
+    },
+    "upstream/CONFIGURATION.md": {
+      "mode": "100644",
+      "blob": "3fa531b5639d62b5490afc9a12344711e102462e"
+    },
+    "upstream/Dockerfile": {
+      "mode": "100644",
+      "blob": "e3a143bb367dc450ba05641aba643bbed20c2623"
+    },
+    "upstream/Dockerfile.distroless": {
+      "mode": "100644",
+      "blob": "99152c28e8b4b793617677a57aa1293d3cbd3c1c"
+    },
+    "upstream/LICENSE": {
+      "mode": "100644",
+      "blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    "upstream/MAINTAINERS.md": {
+      "mode": "100644",
+      "blob": "288968d915643b85233509613d31505acbd08705"
+    },
+    "upstream/Makefile": {
+      "mode": "100644",
+      "blob": "6012f30162f21519ed6142d9401f3a18cab5cf17"
+    },
+    "upstream/Makefile.common": {
+      "mode": "100644",
+      "blob": "cd54cb419cad98706b60ac7511f568032e376121"
+    },
+    "upstream/NOTICE": {
+      "mode": "100644",
+      "blob": "7d18cf7f0463a9d4cbd16ef36bee03b246f379fa"
+    },
+    "upstream/README.md": {
+      "mode": "100644",
+      "blob": "4bf595ca1b7f7122b6e919499c78056a36594d94"
+    },
+    "upstream/SECURITY.md": {
+      "mode": "100644",
+      "blob": "5e6f976dbff3ac7dd867f0a5d225f04fe3db3f4c"
+    },
+    "upstream/VERSION": {
+      "mode": "100644",
+      "blob": "697f087f376ad7f03d3702f9f0e0987315e73f73"
+    },
+    "upstream/blackbox.yml": {
+      "mode": "100644",
+      "blob": "7b5ea8d96745a376e3b6d87cb20d1a69c1786587"
+    },
+    "upstream/config/config.go": {
+      "mode": "100644",
+      "blob": "c579ae69a91a4b472f6fde330831d8e9bac91a8e"
+    },
+    "upstream/config/config_test.go": {
+      "mode": "100644",
+      "blob": "0cfc4fb887b23f9f4af7cbcebe6320d62afa90a5"
+    },
+    "upstream/config/reload.go": {
+      "mode": "100644",
+      "blob": "3d7de120d42aeba648380d77326cc30eea0d95c4"
+    },
+    "upstream/config/reload_test.go": {
+      "mode": "100644",
+      "blob": "c70a0278337d8335b958c2d9e34aa0bff4366924"
+    },
+    "upstream/config/testdata/blackbox-bad.yml": {
+      "mode": "100644",
+      "blob": "933ec54dfae16610c279f311535ea9645693b4ac"
+    },
+    "upstream/config/testdata/blackbox-bad2.yml": {
+      "mode": "100644",
+      "blob": "90c54b203d558d471fa584b50780444ea95001c9"
+    },
+    "upstream/config/testdata/blackbox-good.yml": {
+      "mode": "100644",
+      "blob": "b419a7f8082a0e98b741a5c20fcffeb39d519a2a"
+    },
+    "upstream/config/testdata/invalid-dns-class.yml": {
+      "mode": "100644",
+      "blob": "2893b31733a884bc9630a29240f16daae21387ec"
+    },
+    "upstream/config/testdata/invalid-dns-module.yml": {
+      "mode": "100644",
+      "blob": "ae91e6689400858fa3f366b032db9506a303c112"
+    },
+    "upstream/config/testdata/invalid-dns-type.yml": {
+      "mode": "100644",
+      "blob": "6c01c44586d8f6f96d272214c10f11ccc069c2f0"
+    },
+    "upstream/config/testdata/invalid-grpc-check-revoked-without-tls.yml": {
+      "mode": "100644",
+      "blob": "96f3b9ef4b7916b2d5803cab163a378867dc281e"
+    },
+    "upstream/config/testdata/invalid-http-body-config.yml": {
+      "mode": "100644",
+      "blob": "16c4784fe90bac3850ac021c9d7ad8168fa8c156"
+    },
+    "upstream/config/testdata/invalid-http-body-match-regexp.yml": {
+      "mode": "100644",
+      "blob": "f7afb009ba1a9289728ac80a8414fa0656be716e"
+    },
+    "upstream/config/testdata/invalid-http-body-not-match-regexp.yml": {
+      "mode": "100644",
+      "blob": "682158ba99084a9d38ce0dd85a30e8c04c6a442a"
+    },
+    "upstream/config/testdata/invalid-http-compression-mismatch-special-case.yml": {
+      "mode": "100644",
+      "blob": "5eb501ede6f48088e91c0d8e8aaf7355b6f2cbea"
+    },
+    "upstream/config/testdata/invalid-http-compression-mismatch.yml": {
+      "mode": "100644",
+      "blob": "211536a8d67c72b320ed28b84989c64425154ad5"
+    },
+    "upstream/config/testdata/invalid-http-header-match-regexp.yml": {
+      "mode": "100644",
+      "blob": "9d639679908f16c06713d0d50e4404b02d544356"
+    },
+    "upstream/config/testdata/invalid-http-header-match.yml": {
+      "mode": "100644",
+      "blob": "ae56c7de0d1512f62831c371eda83a62006808e7"
+    },
+    "upstream/config/testdata/invalid-http-http3-http2-enabled.yml": {
+      "mode": "100644",
+      "blob": "1c8d9b686f2e84d2798966374031af33d626794d"
+    },
+    "upstream/config/testdata/invalid-http-http3-http2-version.yml": {
+      "mode": "100644",
+      "blob": "cbdce3ecff941144339e23033499f63b401bdeeb"
+    },
+    "upstream/config/testdata/invalid-http-http3-http2.yml": {
+      "mode": "100644",
+      "blob": "9efbd86a064cdf8b4e8adf65c0eef6412ef46904"
+    },
+    "upstream/config/testdata/invalid-http-request-compression-reject-all-encodings.yml": {
+      "mode": "100644",
+      "blob": "f8899c46e3cc08c3e8ed9c47f2db14da889bbc25"
+    },
+    "upstream/config/testdata/invalid-icmp-ttl-overflow.yml": {
+      "mode": "100644",
+      "blob": "9b3afb11fad3d177b58b35240a57dcc642f592e5"
+    },
+    "upstream/config/testdata/invalid-icmp-ttl.yml": {
+      "mode": "100644",
+      "blob": "7eb4924319b4aa8af2e69b76f3419142588018c8"
+    },
+    "upstream/config/testdata/invalid-no-versions-http3-enabled.yml": {
+      "mode": "100644",
+      "blob": "62f7e5d3dd5529b541b6b75641b40bcd438bced1"
+    },
+    "upstream/config/testdata/invalid-prober.yml": {
+      "mode": "100644",
+      "blob": "36aa1214c60d5fa38d3bad185a91cca88d6e26c1"
+    },
+    "upstream/config/testdata/invalid-tcp-check-revoked-without-tls.yml": {
+      "mode": "100644",
+      "blob": "6476684e4f0aaf5986110ab78f3eb046fb8c4190"
+    },
+    "upstream/config/testdata/invalid-tcp-query-response-regexp.yml": {
+      "mode": "100644",
+      "blob": "22a31657f23da19ec953092cb45a10e2788f1df6"
+    },
+    "upstream/config/testdata/invalid-unix-query-response-regexp.yml": {
+      "mode": "100644",
+      "blob": "348030fd858ebe9196b3186ce977afc67fc96afe"
+    },
+    "upstream/config/testdata/invalid-websocket-query-response-regexp.yml": {
+      "mode": "100644",
+      "blob": "357c23961ed234b466bc1ef3ea9eda84877bee90"
+    },
+    "upstream/example.yml": {
+      "mode": "100644",
+      "blob": "d01abe2e44ed492b937348cdc990167cf19218c8"
+    },
+    "upstream/go.mod": {
+      "mode": "100644",
+      "blob": "e0bbd75cd3832445a96ac1155fe95dff49455804"
+    },
+    "upstream/go.sum": {
+      "mode": "100644",
+      "blob": "1ec8909272854e383bf4e59b2203bb96fd0e0a24"
+    },
+    "upstream/main.go": {
+      "mode": "100644",
+      "blob": "40fbe292df3b6d1aa818c624ddd0ccd1a1e1b974"
+    },
+    "upstream/main_test.go": {
+      "mode": "100644",
+      "blob": "45c9abe1485e582e9d44a9b0fc38c4ed92f3e348"
+    },
+    "upstream/prober/crl.go": {
+      "mode": "100644",
+      "blob": "71b62aa3a0f7f0a33cf1f5e8118f4dcb324edc82"
+    },
+    "upstream/prober/crl_test.go": {
+      "mode": "100644",
+      "blob": "4cd5597b461d31b83ecb7891b45eb7c5ce0afda5"
+    },
+    "upstream/prober/dns.go": {
+      "mode": "100644",
+      "blob": "c9552c50bcaff4ca24b10fbd43125b4e8f37c9e1"
+    },
+    "upstream/prober/dns_test.go": {
+      "mode": "100644",
+      "blob": "4e4fdff29656813be284b262b9221d823b9691a2"
+    },
+    "upstream/prober/grpc.go": {
+      "mode": "100644",
+      "blob": "e6d4992e900f11ed7d04f2cf1e841e92de26615c"
+    },
+    "upstream/prober/grpc_test.go": {
+      "mode": "100644",
+      "blob": "67e8442c7559afc66b5cfaa8b6273d09e08e90d6"
+    },
+    "upstream/prober/handler.go": {
+      "mode": "100644",
+      "blob": "8c6399f471d60dfca88291a3f4c5ae7c4ad0fd32"
+    },
+    "upstream/prober/handler_test.go": {
+      "mode": "100644",
+      "blob": "462a34a64ea4054c4a4862ba0ef66b3179746cf2"
+    },
+    "upstream/prober/history.go": {
+      "mode": "100644",
+      "blob": "a31ec9f7bed343f1f0598eee1c128136874e0231"
+    },
+    "upstream/prober/history_test.go": {
+      "mode": "100644",
+      "blob": "fcff55c8b70a5cf6e22e09c8b2e83aa4cdf6ab96"
+    },
+    "upstream/prober/http.go": {
+      "mode": "100644",
+      "blob": "be13001dc03c476945e8686cb99f9ebaa960608a"
+    },
+    "upstream/prober/http_test.go": {
+      "mode": "100644",
+      "blob": "65fb3ce4672c758bbc93b26a1b5350e8d494e8ef"
+    },
+    "upstream/prober/icmp.go": {
+      "mode": "100644",
+      "blob": "5bfa7366fff4dc6206263f24c04df21480ed45f0"
+    },
+    "upstream/prober/prober.go": {
+      "mode": "100644",
+      "blob": "5988c0327a0a0b07b2a3ca35331cf390b8a71a00"
+    },
+    "upstream/prober/query_response.go": {
+      "mode": "100644",
+      "blob": "1dce3017387be696e21cbff76d84a734905b1005"
+    },
+    "upstream/prober/tcp.go": {
+      "mode": "100644",
+      "blob": "d8fcc9f1dc8a2888e7ead24aa0d412a46b9c5ed6"
+    },
+    "upstream/prober/tcp_test.go": {
+      "mode": "100644",
+      "blob": "fec954a42a5ee430cb4e61981add74c6f3638649"
+    },
+    "upstream/prober/tls.go": {
+      "mode": "100644",
+      "blob": "0589036e97a4d9a7fdfa2d5325a31634a08274b4"
+    },
+    "upstream/prober/unix.go": {
+      "mode": "100644",
+      "blob": "195f8678cc16dc918bf1ac4e8a39b265883e5c93"
+    },
+    "upstream/prober/unix_test.go": {
+      "mode": "100644",
+      "blob": "5e0c7555f679d4da088b17ca4130363c93772c25"
+    },
+    "upstream/prober/utils.go": {
+      "mode": "100644",
+      "blob": "2bc100978f0e12abd43596a9874918955a8acc96"
+    },
+    "upstream/prober/utils_test.go": {
+      "mode": "100644",
+      "blob": "f2cff7a4d2afdfb9fd6cabbfb4f3a6995854a67c"
+    },
+    "upstream/prober/websocket.go": {
+      "mode": "100644",
+      "blob": "aae251794c934f8f8c01287ebe1693ae42169ecd"
+    },
+    "upstream/prober/websocket_test.go": {
+      "mode": "100644",
+      "blob": "4065eb898b9aebc907f512195822de8c09ecf28c"
+    }
+  },
+  "frozen_prefixes": [
+    "upstream/"
+  ],
+  "authority_hashes": {},
+  "required_text": {},
+  "structured_files": {
+    "governance/interim-release-policy.json": {
+      "schema_version": 1,
+      "policy_kind": "source_merge",
+      "repository": "appolon1908/Codestra-Blackbox-Exporter",
+      "authorization_date": "2026-11-02",
+      "required_checks": [
+        {
+          "context": "frozen-vendor-documentation-source",
+          "integration_id": 15368,
+          "workflow": ".github/workflows/source-scope.yml"
+        }
+      ],
+      "replaces_contexts": [
+        "codestra-control-plane",
+        "codestra/control-plane"
+      ],
+      "preserve": [
+        "other_required_checks",
+        "review_requirements",
+        "ref_conditions",
+        "bypass_actors",
+        "enforcement",
+        "force_push_protection",
+        "deletion_protection",
+        "deployment_authority"
+      ],
+      "production_activation_authorized": false,
+      "note": "Only documentation additions outside the frozen baseline are validated. Every original vendor, config, lock and authority Git blob/mode remains immutable. This does not certify vendor code, runtime or vendor security and does not authorize deployment."
+    }
+  }
+}
