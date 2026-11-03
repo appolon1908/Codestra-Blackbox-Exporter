@@ -1,9 +1,10 @@
 {
   "schema_version": "1.0",
   "component": "Blackbox Exporter",
+  "codestra_repository": "appolon1908-hue/Codestra-Blackbox-Exporter",
   "upstream_repository": "prometheus/blackbox_exporter",
   "upstream_clone_url": "https://github.com/prometheus/blackbox_exporter.git",
-  "upstream_ref": "master",
+  "upstream_ref": "19352b58dc26d81ac63ba13680135f7527a29524",
   "import_path": "upstream",
   "deployment_enabled": false,
   "secret_material_allowed_in_git": false
