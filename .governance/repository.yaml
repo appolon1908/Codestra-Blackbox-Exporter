@@ -1,0 +1,12 @@
+version: 1
+repository: Codestra-Blackbox-Exporter
+repository_url: https://github.com/ingtrader21-spec/Codestra-Blackbox-Exporter.git
+canonical_path: /home/codestra/Worktrees/Monitoring-Active-20260926/Codestra-Blackbox-Exporter
+active_worktree: /home/codestra/Worktrees/Monitoring-Active-20260926/Codestra-Blackbox-Exporter
+active_branch: governance/single-active-lane-20260926
+base_branch: main
+base_sha: d593f386a00ec8635671a4ed598315a3bf24fe70
+upstream_ref: origin/main
+publication_branch: governance/single-active-lane-20260926
+production_effects_allowed: false
+certification_mode: isolated_exact_sha
