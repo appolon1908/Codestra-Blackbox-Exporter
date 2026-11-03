@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "component": "blackbox-exporter",
+  "role": "synthetic-endpoint-and-network-prober",
+  "canonicalHostname": "blac.codestra.media",
+  "exposure": "internal_private",
+  "status": "SOURCE_PREPARED_NOT_DEPLOYED",
+  "probeClasses": ["public_https", "private_https", "tcp_connect", "dns_resolution", "tls_certificate"],
+  "businessScope": ["codestra", "moneybee", "beyvra", "breero", "larim-a", "transportation", "booked4seasons", "social", "klyrow", "telnexa", "kyqra", "restaurant", "provisioning"],
+  "features": {
+    "httpStatusValidation": true,
+    "expectedContentValidation": true,
+    "tlsExpiryMonitoring": true,
+    "dnsResolutionMonitoring": true,
+    "tcpConnectivityMonitoring": true,
+    "latencyMonitoring": true,
+    "publicPrivateProbeSeparation": true,
+    "businessOwnershipMetadata": true,
+    "dependencyHealth": true
+  },
+  "probeSafety": {
+    "noStateChangingRequests": true,
+    "noCredentialBearingBusinessTransactions": true,
+    "noPstnCalls": true,
+    "noEmailOrSmsDelivery": true,
+    "noTradingMutations": true
+  },
+  "security": {
+    "publicNativePortAllowed": false,
+    "prometheusPrivateScrapeOnly": true
+  }
+}

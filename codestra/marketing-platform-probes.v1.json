@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "status": "PROBE_CATALOG_PREPARED_NOT_ACTIVATED",
+  "domain": "codestra-marketing-platform",
+  "probeClasses": ["https","tls","dns","tcp"],
+  "targets": ["kong","keycloak","marketing","ai","communication","social-control","social-runtime","odoo"],
+  "requirements": {"sideEffectFree": true,"credentialsEmbedded": false,"writeMethodsAllowed": false,"expectedMethods": ["GET","HEAD"],"tlsVerificationRequired": true},
+  "activation": {"stagingTargetsEnabled": false,"productionTargetsEnabled": false,"probeExecutionAuthorized": false}
+}
